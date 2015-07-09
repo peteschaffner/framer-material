@@ -53,3 +53,67 @@ class Material extends Layer
 			set: @::setElevation
 
 module?.exports = Material
+
+# {Material} = require "myModule"
+#
+Material.mixin Layer
+# new Material elevation: 2
+
+# Remove framer cursor
+document.body.style.cursor = "auto"
+
+# Variables
+rows = 24
+gutter = 10
+width  = 400
+height = 100
+
+# Create background
+new BackgroundLayer backgroundColor: "#eee"
+
+# Create scrolling container for material
+scroll = new ScrollComponent
+	width: Screen.width, height: Screen.height
+	contentInset: top: 150, bottom: 150
+	scrollHorizontal: false
+	mouseWheelEnabled: true
+
+# Loop to create layers
+for index in [0...rows]
+	elevation = index + 1
+
+	card = new Layer
+		superLayer: scroll.content
+		width:  width
+		height: height 
+		y: index * (height + gutter + index)
+		borderRadius: 3
+		backgroundColor: "#fafafa"
+		elevation: elevation
+	
+	card.centerX()
+	Utils.labelLayer card, elevation,
+		color: "rgba(0,0,0,0.54)"
+		fontSize: "14px"
+
+# FAB (Floating Action Button)
+fab = new Layer
+	x: 24
+	y: 24
+	width: 56
+	height: 56
+	borderRadius: 56
+	backgroundColor: "#FF4081"
+	elevation: 6
+
+fab.on Events.TouchStart, ->
+	@animate
+		properties: elevation: 24
+		curve: "cubic-bezier(0.4, 0, 0.2, 1)"
+		time: 0.2
+
+fab.on Events.TouchEnd, ->
+	@animate
+		properties: elevation: 6
+		curve: "cubic-bezier(0.4, 0, 0.2, 1)"
+		time: 0.3
