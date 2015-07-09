@@ -11,12 +11,12 @@ class Material extends Layer
 			# alert if out of Material elevation range
 			if value > 24 or value < 0
 				throw Error "Elevation must be between 0–24. See https://www.google.com/design/spec/what-is-material/elevation-shadows.html#elevation-shadows-elevation-android-"
-			
-			# make sure we don't clip our shadows
-			@clip = false
 
 			# create shadows if they don't exist
 			unless @_shadow1
+				# make sure we don't clip our shadows
+				@clip = false
+
 				# TODO: this is a hack because `Layer#_subLayers`
 				# is set after construction
 				@_subLayers = []
