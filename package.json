@@ -1,0 +1,27 @@
+{
+  "name": "framer-material",
+  "version": "0.0.1",
+  "description": "Google material design properties for your layers.",
+  "author": {
+    "name": "Pete Schaffner",
+    "email": "pjschaffner@gmail.com"
+  },
+  "license": "MIT",
+  "keywords": [
+    "prototyping",
+    "framerjs"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/peteschaffner/framer-material.git"
+  },
+  "main": "app.coffee",
+  "dependencies": {
+    "coffeeify": "^1.1.0"
+  },
+  "browserify": {
+    "transform": [
+      "coffeeify"
+    ]
+  }
+}
