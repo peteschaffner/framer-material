@@ -42,7 +42,7 @@ class Material extends Layer
 			@_shadow2.shadowY = value / 2
 			@_shadow2.shadowBlur = value / 2
 			@_shadow2.shadowColor = """rgba(
-				0,0,0,#{0.1 * value}
+				0,0,0,
 				#{Utils.modulate value, [1, 24], [0, 0.24], true }
 			)"""
 

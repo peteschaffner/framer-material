@@ -1,7 +1,7 @@
 {
   "name": "framer-material",
   "version": "0.0.1",
-  "description": "Google material design properties for your layers.",
+  "description": "Google material design properties for your Framer layers.",
   "author": {
     "name": "Pete Schaffner",
     "email": "pjschaffner@gmail.com"

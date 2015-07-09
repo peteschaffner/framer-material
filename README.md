@@ -1,7 +1,7 @@
 
 # Framer `Material` module
 
-Google material design properties for your layers.
+Google material design properties for your Framer layers.
 
 ## Usage
 ```shell
