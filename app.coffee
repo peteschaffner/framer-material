@@ -287,7 +287,10 @@ class Material extends Layer
 		super opts
 	
 	showRipple: (e) ->
-		[x, y] = [e.offsetX, e.offsetY]
+		# TODO: Fix upstream.
+		# `mid{X,Y}` props get messed up when calling `center[X|Y]`
+		# on a layer
+		[x, y] = if e then [e.offsetX, e.offsetY] else [@.midX, @.midY]
 
 		unless @_ink
 			@_inkMask = new Layer
