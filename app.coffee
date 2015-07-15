@@ -281,9 +281,8 @@ colors =
 
 class Material extends Layer
 	constructor: (opts={}) ->
-		opts.elevation ?= defaults.elevation
-		opts.rippleColor ?= defaults.rippleColor
-		opts.surfaceReaction ?= defaults.surfaceReaction
+		for key, value of defaults
+			opts[key] ?= value
 
 		super opts
 	
@@ -338,7 +337,6 @@ class Material extends Layer
 		get: -> @_surfaceReaction
 		set: (value) ->
 			@_surfaceReaction = if value then true else false
-			
 			
 			if value
 				@on Events.TouchStart, @showRipple
@@ -405,26 +403,18 @@ class Material extends Layer
 
 	# Add `Material` properties to other classes
 	@mixin: (ClassName) ->
-		# Set defaults
-		Defaults = Framer.Defaults[ClassName.name]
-		Defaults.rippleColor = defaults.rippleColor
-		Defaults.elevation = defaults.elevation
-		Defaults.surfaceReaction = defaults.surfaceReaction
+		capitalizeFirstLetter = (string) ->
+			string.charAt(0).toUpperCase() + string.slice(1)
 
-		ClassName.define "elevation",
-			configurable: true
-			get: @::getElevation
-			set: @::setElevation
-		
-		ClassName.define "rippleColor",
-			configurable: true
-			get: @::getRippleColor
-			set: @::setRippleColor
-		
-		ClassName.define "surfaceReaction",
-			configurable: true
-			get: @::getSurfaceReaction
-			set: @::setSurfaceReaction
+		for key, value of defaults
+			# Set defaults
+			Framer.Defaults[ClassName.name][key] = value
+
+			# Add getter/setter properties
+			ClassName.define key,
+				configurable: true
+				get: @::["get#{capitalizeFirstLetter key}"]
+				set: @::["set#{capitalizeFirstLetter key}"]
 		
 		ClassName::showRipple = @::showRipple
 		ClassName::hideRipple = @::hideRipple
