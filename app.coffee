@@ -1,9 +1,11 @@
 
+# Material properties
 defaults =
 	elevation: 0
 	rippleColor: "rgba(0,0,0,0.05)"
 	surfaceReaction: false
 
+# Material Design colors
 colors =
 	Red:
 		"50": "#ffebee"
@@ -286,11 +288,9 @@ class Material extends Layer
 
 		super opts
 	
-	showRipple: (e) ->
-		# TODO: Fix upstream.
-		# `mid{X,Y}` props get messed up when calling `center[X|Y]`
-		# on a layer
-		[x, y] = if e then [e.offsetX, e.offsetY] else [@.midX, @.midY]
+	showRipple: (args...) ->
+		[x, y] = if args.length is 0 then [@width/2, @height/2]
+		else [args[0].offsetX or args[0], args[0].offsetY or args[1]]
 
 		unless @_ink
 			@_inkMask = new Layer
