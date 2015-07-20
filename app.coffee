@@ -300,10 +300,6 @@ class Material extends Layer
 				height: @height
 				borderRadius: @borderRadius
 				backgroundColor: "transparent"
-				# TODO: Fix upstream.
-				# When a layer has content (i.e. `html` set)
-				# it pushes any `subLayers` down.
-				style: left: 0, top: 0
 
 			@_ink = new Layer
 				name: "ink"
