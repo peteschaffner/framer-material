@@ -1,7 +1,8 @@
 
 # Framer `Material` module
 
-Google material design properties for your Framer layers.
+Google material design properties for your Framer layers. See the
+[example][example].
 
 ## Usage
 ```shell
@@ -83,3 +84,4 @@ SOFTWARE.
 [colors]: https://www.google.com/design/spec/style/color.html
 [elevation]: https://www.google.com/design/spec/what-is-material/elevation-shadows.html
 [ripple]: https://www.google.com/design/spec/animation/responsive-interaction.html#responsive-interaction-user-input
+[example]: http://share.framerjs.com/zaurd25w1urf/
