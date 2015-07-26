@@ -402,12 +402,18 @@ class Material extends Layer
 
 	# Add `Material` properties to other classes
 	@mixin: (ClassName) ->
+		# TODO: consider if this even makes sense
+		# to mixin to other classes.
+		
+		# This is a temporary fix for `MobileScrollFixLayer` on mobile.
+		sanitizedClassName =
+			if /layer/i.test ClassName.name then "Layer" else ClassName.name
 		capitalizeFirstLetter = (string) ->
 			string.charAt(0).toUpperCase() + string.slice(1)
 
 		for key, value of defaults
 			# Set defaults
-			Framer.Defaults[ClassName.name][key] = value
+			Framer.Defaults[sanitizedClassName][key] = value
 
 			# Add getter/setter properties
 			ClassName.define key,
