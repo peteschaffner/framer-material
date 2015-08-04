@@ -384,6 +384,15 @@ class Material extends Layer
 				@_shadow2.name = "shadow2"
 				@_shadow2.superLayer = @
 
+				# resize shadows and ink mask with parent material
+				@on "change:width", (value) ->
+					@_shadow1.width = @_shadow2.width = value
+					@_inkMask?.width = value
+
+				@on "change:height", (value) ->
+					@_shadow1.height = @_shadow2.height = value
+					@_inkMask?.height = value
+
 			# set elevation (shadow styles)
 			@_shadow1.shadowY = value
 			@_shadow1.shadowBlur = value
