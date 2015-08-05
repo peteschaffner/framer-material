@@ -4,6 +4,8 @@
 Google material design properties for your Framer layers. See the
 [example][example].
 
+<img src="screenshot.png" width="481">
+
 ## Usage
 ```shell
 $ cd <myProject>.framer
