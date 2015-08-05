@@ -378,7 +378,7 @@ class Material extends Layer
 					width: @width
 					height: @height
 					borderRadius: @borderRadius
-					backgroundColor: "transparent"
+					backgroundColor: null
 					
 				@_shadow2 = @_shadow1.copy()
 				@_shadow2.name = "shadow2"
@@ -394,6 +394,9 @@ class Material extends Layer
 					@_inkMask?.height = value
 
 			# set elevation (shadow styles)
+			@shadowSpread = 1
+			@shadowBlur = value
+			@shadowColor = "rgba(0,0,0,0.04)"
 			@_shadow1.shadowY = value
 			@_shadow1.shadowBlur = value
 			@_shadow1.shadowColor = "rgba(0,0,0,0.24)"
