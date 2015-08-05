@@ -84,4 +84,4 @@ SOFTWARE.
 [colors]: https://www.google.com/design/spec/style/color.html
 [elevation]: https://www.google.com/design/spec/what-is-material/elevation-shadows.html
 [ripple]: https://www.google.com/design/spec/animation/responsive-interaction.html#responsive-interaction-user-input
-[example]: http://share.framerjs.com/eagqdhh5xo1x/
+[example]: http://share.framerjs.com/wm1z4fn6nmfv/
