@@ -37,7 +37,7 @@ new Material elevation: 24
 ## API
 
 ### `Material.mixin(class <object>)`
-Extend the functionality of `Layer` so that it inherits "material" properties.
+Extend the functionality of `class` so that it inherits "material" properties.
 
 ### `Material.Color`
 The material design [color palette][colors]. For example:
